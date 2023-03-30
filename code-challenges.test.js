@@ -11,6 +11,16 @@
 // Run the file with the following command: $ yarn jest
 
 // --------------------1) Create a function that takes in a string and returns a string with a coded message. The coded message converts "a" to 4, "e" to 3, "i" to 1, and "o" to 0.
+//PSEUDOCODE : I created a function called codeString which takes a string ("")
+// as its parameters and return the string with .replace. Each letter is being
+//replaced with a number "a" for 4, "e for 3", "i", for 1, and "o" for 0.
+// using the .replace method syntax : the letter in the beginning of the paranthese
+// is whats being replaced and in the next forward slash is either a i to ignore
+//the  flag syntax and gi for global ignore for all syntax.
+// then at the end of the paranthese is the number being replacing the letter.
+// for the letter "e" a capital E is included and javascript needs specifications
+//to include that capital letter to be replaced.
+//output: should be the string with the letters replaced with numbers.
 
 // a) Create a test with expect statements using the variables provided.
 

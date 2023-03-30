@@ -15,7 +15,12 @@ def array_letter (array, string)
         value.include?(string)
     end
 end
-
+describe "array_letter", () => {
+    it ("returns an array of all the words containing that particular letter. Use the test variables provided.", () => {
+    expect(array_letter(beverages_array, letter o)).toEqual(['coffee', 'soda water'])
+    expect(array_letter(beverages_array, letter t)).toEqual(['tea', 'water', 'soda water'])
+    })
+}
 p array_letter(beverages_array, letter_o)
 p array_letter(beverages_array, letter_t)
 
