@@ -10,6 +10,19 @@ letter_o = 'o'
 letter_t = 't'
 # Expected output: ['tea', 'water', 'soda water']
 
+def array_letter (array, string)
+    array.filter do |value|
+        value.include?(string)
+    end
+end
+describe "array_letter", () => {
+    it ("returns an array of all the words containing that particular letter. Use the test variables provided.", () => {
+    expect(array_letter(beverages_array, letter o)).toEqual(['coffee', 'soda water'])
+    expect(array_letter(beverages_array, letter t)).toEqual(['tea', 'water', 'soda water'])
+    })
+}
+p array_letter(beverages_array, letter_o)
+p array_letter(beverages_array, letter_t)
 
 # -------------------2) Create a method that takes in a hash and returns one array with all the hash values at their own index and in alphabetical order. No nested arrays. Use the test variable provided.
 # HINT: Google 'ruby get rid of nested arrays'
@@ -17,11 +30,50 @@ letter_t = 't'
 us_states = { northwest: ['Washington', 'Oregon', 'Idaho'], southwest: ['California', 'Arizona', 'Nevada'], notheast: ['Maine', 'New Hampshire', 'Rhode Island'] }
 # Expected output: ['Arizona', 'California', 'Idaho', 'Maine', 'Nevada', 'New Hampshire', 'Oregon', 'Rhode Island', 'Washington'] 
 
+def sort_states hash
+    hash.values.flatten.sort
+end
 
+p sort_states(us_states)
 # --------------------3a) Create a class called Bike that is initialized with a model, wheels, and current_speed. The default number of wheels is 2. The current_speed should start at 0. Create a bike_info method that returns a sentence with all the data from the bike object.
 
 # Expected output example: 'The Trek bike has 2 wheels and is going 0 mph.'
 
+class Bike
+    def initialize(model)
+        @model = model
+        @wheels = 2
+        @current_speed = 0
+    end
+
+    def increase(mph)
+        @current_speed += mph
+    end
+
+    def brake(mph)
+        if mph > @current_speed
+            0
+        else
+            @current_speed -= mph
+        end
+    end
+
+    def new_current_speed
+        @current_speed
+    end
+
+    def get_bike_info
+        "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph."
+    end
+end
+
+model_trek = Bike.new('Trek')
+p model_trek.get_bike_info # The Trek bike has 2 wheels and is going 0 mph.
+
+p model_trek.increase(10) #10
+p model_trek.increase(18) #28
+p model_trek.brake(5) #23
+p model_trek.brake(25) #0
 
 
 # -------------------3b) Add the ability to pedal faster and brake. The pedal_faster method should increase the speed by a given amount. The brake method should decrease the speed by a given amount. The bike cannot go negative speeds.
